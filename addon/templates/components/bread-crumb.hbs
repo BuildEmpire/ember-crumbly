@@ -1,6 +1,6 @@
 {{#if route.linkable}}
   {{#if queryParams}}
-    {{#link-to route.path queryParams class=linkClass}}
+    {{#link-to route.path route.params class=linkClass}}
       {{#if hasBlock}}
         {{yield this route}}
       {{else}}
