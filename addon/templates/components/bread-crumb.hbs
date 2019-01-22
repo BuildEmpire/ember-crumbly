@@ -1,11 +1,21 @@
 {{#if route.linkable}}
-  {{#link-to route.path class=linkClass}}
-    {{#if hasBlock}}
-      {{yield this route}}
-    {{else}}
-      {{route.title}}
-    {{/if}}
-  {{/link-to}}
+  {{#if queryParams}}
+    {{#link-to route.path queryParams class=linkClass}}
+      {{#if hasBlock}}
+        {{yield this route}}
+      {{else}}
+        {{route.title}}
+      {{/if}}
+    {{/link-to}}
+  {{else}}
+    {{#link-to route.path class=linkClass}}
+      {{#if hasBlock}}
+        {{yield this route}}
+      {{else}}
+        {{route.title}}
+      {{/if}}
+    {{/link-to}}
+  {{/if}}
 {{else}}
   {{#if hasBlock}}
     {{yield this route}}
