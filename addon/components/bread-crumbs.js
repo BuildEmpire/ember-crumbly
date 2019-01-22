@@ -25,6 +25,7 @@ export default Component.extend({
   tagName: 'ol',
   linkable: true,
   reverse: false,
+  params: null,
   classNameBindings: ['breadCrumbClass'],
   hasBlock: bool('template').readOnly(),
   routing: service('-routing'),
