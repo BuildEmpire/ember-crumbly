@@ -33,7 +33,7 @@ export default Component.extend({
   currentUrl: readOnly('applicationRoute.router.url'),
   path: readOnly('applicationRoute.controller.path'),
 
-  routeHierarchy: computed('currentUrl', 'reverse', 'path', {
+  routeHierarchy: computed('currentUrl', 'router.currentRouteName', 'reverse', 'path', {
     get() {
       get(this, 'currentUrl');
       const currentRouteName = this.router.currentRouteName;
