@@ -29,14 +29,14 @@ export default Component.extend({
   classNameBindings: ['breadCrumbClass'],
   hasBlock: bool('template').readOnly(),
   routing: service('-routing'),
+  router: service('router'),
   currentUrl: readOnly('applicationRoute.router.url'),
-  currentRouteName: readOnly('applicationRoute.controller.currentRouteName'),
   path: readOnly('applicationRoute.controller.path'),
 
-  routeHierarchy: computed('currentUrl', 'currentRouteName', 'reverse', 'path', {
+  routeHierarchy: computed('currentUrl', 'reverse', 'path', {
     get() {
       get(this, 'currentUrl');
-      const currentRouteName = getWithDefault(this, 'currentRouteName', false);
+      const currentRouteName = this.router.currentRouteName;
 
       assert('[ember-crumbly] Could not find a current route', currentRouteName);
 
